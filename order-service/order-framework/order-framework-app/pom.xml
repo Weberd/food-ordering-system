@@ -5,13 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>order-service</artifactId>
+        <artifactId>order-framework</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-domain</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>order-domain-core</module>
-    </modules>
+    <artifactId>order-framework-app</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
 </project>

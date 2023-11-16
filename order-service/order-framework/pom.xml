@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>food-ordering-system</artifactId>
+        <artifactId>order-service</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-service</artifactId>
+    <artifactId>order-framework</artifactId>
     <packaging>pom</packaging>
+
     <modules>
-        <module>order-application</module>
-        <module>order-domain</module>
-        <module>order-framework</module>
+        <module>order-framework-api</module>
+        <module>order-framework-app</module>
     </modules>
 
     <dependencyManagement>

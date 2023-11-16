@@ -5,13 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>order-service</artifactId>
+        <artifactId>order-application</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-domain</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>order-domain-core</module>
-    </modules>
+    <artifactId>order-application-service</artifactId>
 </project>
