@@ -9,5 +9,5 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-message</artifactId>
+    <artifactId>order-messaging</artifactId>
 </project>
