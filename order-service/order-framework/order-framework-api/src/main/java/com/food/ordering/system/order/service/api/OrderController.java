@@ -24,9 +24,11 @@ public class OrderController {
         return new CreateOrderResponse();
     }
 
-    @GetMapping("/{trackingId}")
-    public TrackOrderResponse trackOrder(@PathVariable UUID trackingId) {
-        return new TrackOrderResponse(UUID.randomUUID(), "PENDING");
+    @GetMapping("/{id}")
+    public TrackOrderResponse trackOrder(@PathVariable UUID orderId) {
+        return this.orderApplicationService.trackOrder(new TrackOrderQuery(orderId));
+    }
+
     @DeleteMapping("/{orderId}")
     @ResponseStatus(HttpStatus.GONE)
     public CancelOrderResponse cancelOrder(@PathVariable UUID orderId) {
