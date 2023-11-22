@@ -5,11 +5,6 @@ import lombok.Getter;
 import java.util.UUID;
 
 @Getter
-public class CancelOrderCommand {
-    private final UUID orderId;
-
-    public CancelOrderCommand(UUID orderId) {
-        this.orderId = orderId;
-    }
+public record CancelOrderCommand(UUID orderId) {
 
 }

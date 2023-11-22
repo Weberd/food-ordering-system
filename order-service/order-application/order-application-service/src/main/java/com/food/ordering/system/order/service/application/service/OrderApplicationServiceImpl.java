@@ -18,6 +18,6 @@ public class OrderApplicationServiceImpl implements OrderApplicationService {
 
     @Override
     public CancelOrderResponse cancelOrder(CancelOrderCommand command) {
-        return new CancelOrderResponse(command.getOrderId());
+        return new CancelOrderResponse(command.orderId());
     }
 }
