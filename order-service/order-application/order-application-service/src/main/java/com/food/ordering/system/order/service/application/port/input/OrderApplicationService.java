@@ -7,4 +7,6 @@ public interface OrderApplicationService {
     CreateOrderResponse createOrder(CreateOrderCommand command);
 
     TrackOrderResponse trackOrder(TrackOrderQuery query);
+
+    CancelOrderResponse cancelOrder(CancelOrderCommand command);
 }

@@ -16,5 +16,8 @@ public class OrderApplicationServiceImpl implements OrderApplicationService {
     @Override
     public TrackOrderResponse trackOrder(TrackOrderQuery query) {
         return null;
+    @Override
+    public CancelOrderResponse cancelOrder(CancelOrderCommand command) {
+        return new CancelOrderResponse(command.getOrderId());
     }
 }

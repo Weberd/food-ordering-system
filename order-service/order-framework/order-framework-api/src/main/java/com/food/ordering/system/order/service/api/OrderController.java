@@ -27,5 +27,9 @@ public class OrderController {
     @GetMapping("/{trackingId}")
     public TrackOrderResponse trackOrder(@PathVariable UUID trackingId) {
         return new TrackOrderResponse(UUID.randomUUID(), "PENDING");
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.GONE)
+    public CancelOrderResponse cancelOrder(@PathVariable UUID orderId) {
+        return this.orderApplicationService.cancelOrder(new CancelOrderCommand(orderId));
     }
 }
