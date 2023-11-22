@@ -22,7 +22,7 @@ public class OrderController {
         return this.orderApplicationService.createOrder(command);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{orderId}")
     public TrackOrderResponse trackOrder(@PathVariable UUID orderId) {
         return this.orderApplicationService.trackOrder(new TrackOrderQuery(orderId));
     }
