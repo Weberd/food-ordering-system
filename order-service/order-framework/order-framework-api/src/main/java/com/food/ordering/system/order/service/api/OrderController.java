@@ -19,7 +19,7 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CreateOrderResponse createOrder(@RequestBody CreateOrderCommand command) {
-        return new CreateOrderResponse();
+        return this.orderApplicationService.createOrder(command);
     }
 
     @GetMapping("/{id}")
