@@ -28,7 +28,6 @@ public class OrderController {
     }
 
     @DeleteMapping("/{orderId}")
-    @ResponseStatus(HttpStatus.GONE)
     public CancelOrderResponse cancelOrder(@PathVariable UUID orderId) {
         return this.orderApplicationService.cancelOrder(new CancelOrderCommand(orderId));
     }
