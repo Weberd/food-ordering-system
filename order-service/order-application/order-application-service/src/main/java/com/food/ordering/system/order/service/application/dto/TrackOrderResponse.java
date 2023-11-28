@@ -1,8 +1,7 @@
 package com.food.ordering.system.order.service.application.dto;
 
+import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.domain.value.OrderStatus;
 
-import java.util.UUID;
-
-public record TrackOrderResponse(UUID orderId, OrderStatus status) {
+public record TrackOrderResponse(OrderId orderId, OrderStatus status) {
 }

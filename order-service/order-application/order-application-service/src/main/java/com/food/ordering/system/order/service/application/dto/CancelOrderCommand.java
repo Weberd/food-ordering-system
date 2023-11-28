@@ -1,10 +1,7 @@
 package com.food.ordering.system.order.service.application.dto;
 
-import lombok.Getter;
+import com.food.ordering.system.domain.value.OrderId;
 
-import java.util.UUID;
-
-@Getter
-public record CancelOrderCommand(UUID orderId) {
+public record CancelOrderCommand(OrderId orderId) {
 
 }

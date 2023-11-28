@@ -1,5 +1,6 @@
 package com.food.ordering.system.order.service.api;
 
+import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.order.service.application.dto.*;
 import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
 import lombok.RequiredArgsConstructor;
@@ -24,11 +25,11 @@ public class OrderController {
 
     @GetMapping("/{orderId}")
     public TrackOrderResponse trackOrder(@PathVariable UUID orderId) {
-        return this.orderApplicationService.trackOrder(new TrackOrderQuery(orderId));
+        return this.orderApplicationService.trackOrder(new TrackOrderQuery(new OrderId(orderId)));
     }
 
     @DeleteMapping("/{orderId}")
     public CancelOrderResponse cancelOrder(@PathVariable UUID orderId) {
-        return this.orderApplicationService.cancelOrder(new CancelOrderCommand(orderId));
+        return this.orderApplicationService.cancelOrder(new CancelOrderCommand(new OrderId(orderId)));
     }
 }
