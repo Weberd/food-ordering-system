@@ -10,4 +10,11 @@
     </parent>
 
     <artifactId>order-messaging</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+    </dependencies>
 </project>
