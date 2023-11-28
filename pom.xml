@@ -17,6 +17,7 @@
     <modules>
         <module>common</module>
         <module>order-service</module>
+        <module>order-service/order-data</module>
     </modules>
 
     <properties>
