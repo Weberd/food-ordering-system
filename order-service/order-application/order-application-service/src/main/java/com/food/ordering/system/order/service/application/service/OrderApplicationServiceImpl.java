@@ -39,7 +39,7 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
             this.orderCreationOutboxRepository.save(order);
         });
 
-        // send order created message;
+        // TODO: send order created message;
         this.orderCreationOutboxRepository.delete(order.getId());
 
         return new CreateOrderResponse();
