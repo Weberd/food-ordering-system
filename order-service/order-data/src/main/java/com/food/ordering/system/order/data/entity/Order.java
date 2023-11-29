@@ -7,19 +7,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 public final class Order extends com.food.ordering.system.domain.entity.Entity<OrderId> {
     @Id
-    private final OrderId id;
+    private OrderId id;
 
     @Column
-    private final String description;
+    private String description;
 
     @Column
     @Enumerated
-    private final OrderStatus status;
+    private OrderStatus status;
 
     public Order(OrderId id, String description, OrderStatus status) {
         this.id = id;

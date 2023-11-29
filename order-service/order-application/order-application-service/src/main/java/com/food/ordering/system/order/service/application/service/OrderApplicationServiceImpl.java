@@ -40,7 +40,7 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
         });
 
         // TODO: send order created message;
-        this.orderCreationOutboxRepository.delete(order.getId());
+        this.orderCreationOutboxRepository.deleteById(order.getId());
 
         return new CreateOrderResponse();
     }
@@ -53,7 +53,9 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
 
     @Override
     public CancelOrderResponse cancelOrder(CancelOrderCommand command) {
-        orderRepository.findById(command.orderId()).orElseThrow(() -> new CancelOrderException(command.orderId()));
+        var order = orderRepository.findById(command.orderId()).orElseThrow(() -> new CancelOrderException(command.orderId()));
+        order.setStatus(OrderStatus.CANCELED);
+        orderRepository.save(order);
         return new CancelOrderResponse(command.orderId());
     }
 }

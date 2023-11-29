@@ -6,7 +6,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.List;
 
 @Service
 public record OrderCreationOutboxRetryTask(OrderCreationOutboxRepository outboxRepository) {
@@ -16,7 +15,7 @@ public record OrderCreationOutboxRetryTask(OrderCreationOutboxRepository outboxR
         for (Order order : orderList) {
             try {
                 // TODO: send messages
-                outboxRepository.delete(order.getId());
+                outboxRepository.deleteById(order.getId());
             } catch (Exception e) {
                 e.printStackTrace();
             }

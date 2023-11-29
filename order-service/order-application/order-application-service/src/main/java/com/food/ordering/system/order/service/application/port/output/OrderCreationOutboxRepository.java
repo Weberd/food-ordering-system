@@ -7,6 +7,6 @@ import java.time.Instant;
 
 public interface OrderCreationOutboxRepository {
     void save(Order order);
-    void delete(OrderId id);
+    void deleteById(OrderId id);
     Iterable<Order> findAllBefore(Instant time);
 }

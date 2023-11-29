@@ -12,7 +12,7 @@ public class OrderCreationOutboxRepositoryImpl implements OrderCreationOutboxRep
     }
 
     @Override
-    public void delete(OrderId id) {
+    public void deleteById(OrderId id) {
 
     }
 
