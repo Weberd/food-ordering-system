@@ -3,9 +3,10 @@ package com.food.ordering.system.order.service.application.port.output;
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.order.data.entity.Order;
 
-import java.util.Optional;
+import java.time.Instant;
 
-public interface OrderRepository {
-    Order save(Order order);
-    Optional<Order> findById(OrderId id);
+public interface OrderCreationOutboxRepository {
+    void save(Order order);
+    void delete(OrderId id);
+    Iterable<Order> findAllBefore(Instant time);
 }
