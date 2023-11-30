@@ -10,8 +10,7 @@ import java.util.Optional;
 @Service
 public class OrderRepositoryImpl implements OrderRepository {
     @Override
-    public Order save(Order order) {
-        return null;
+    public void save(Order order) {
     }
 
     @Override

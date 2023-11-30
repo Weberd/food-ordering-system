@@ -6,6 +6,6 @@ import com.food.ordering.system.order.data.entity.Order;
 import java.util.Optional;
 
 public interface OrderRepository {
-    Order save(Order order);
+    void save(Order order);
     Optional<Order> findById(OrderId id);
 }
