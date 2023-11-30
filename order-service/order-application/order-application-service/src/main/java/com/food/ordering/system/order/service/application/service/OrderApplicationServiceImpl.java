@@ -45,13 +45,13 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
     }
 
     @Override
-    public TrackOrderResponse trackOrder(TrackOrderQuery query) {
+    public TrackOrderResponse trackOrder(TrackOrderQuery query) throws NoSuchElementException {
         var order = orderRepository.findById(query.orderId()).orElseThrow(() -> new NoSuchElementException(String.valueOf(query.orderId())));
         return new TrackOrderResponse(order.getId(), order.getStatus());
     }
 
     @Override
-    public CancelOrderResponse cancelOrder(CancelOrderCommand command) {
+    public CancelOrderResponse cancelOrder(CancelOrderCommand command) throws NoSuchElementException {
         var order = orderRepository.findById(command.orderId()).orElseThrow(() -> new NoSuchElementException(String.valueOf(command.orderId())));
         order.setStatus(OrderStatus.CANCELED);
         orderRepository.save(order);
