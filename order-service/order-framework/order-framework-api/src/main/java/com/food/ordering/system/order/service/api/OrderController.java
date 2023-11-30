@@ -6,6 +6,7 @@ import com.food.ordering.system.order.service.application.port.input.OrderApplic
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
@@ -20,7 +21,7 @@ public class OrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateOrderResponse createOrder(@RequestBody CreateOrderCommand command) {
+    public CreateOrderResponse createOrder(@RequestBody @Validated CreateOrderCommand command) {
         return this.orderApplicationService.createOrder(command);
     }
 
