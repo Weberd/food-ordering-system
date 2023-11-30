@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @RestController
@@ -31,5 +32,11 @@ public class OrderController {
     @DeleteMapping("/{orderId}")
     public CancelOrderResponse cancelOrder(@PathVariable UUID orderId) {
         return this.orderApplicationService.cancelOrder(new CancelOrderCommand(new OrderId(orderId)));
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NoSuchElementException.class)
+    public String return404(NoSuchElementException exception) {
+        return exception.getMessage();
     }
 }

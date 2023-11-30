@@ -3,8 +3,6 @@ package com.food.ordering.system.order.service.application.service;
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.domain.value.OrderStatus;
 import com.food.ordering.system.order.service.application.dto.*;
-import com.food.ordering.system.order.service.application.exception.CancelOrderException;
-import com.food.ordering.system.order.service.application.exception.TrackOrderException;
 import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
 import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 import com.food.ordering.system.order.service.application.port.output.OrderRepository;
@@ -13,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -47,13 +46,13 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
 
     @Override
     public TrackOrderResponse trackOrder(TrackOrderQuery query) {
-        var order = orderRepository.findById(query.orderId()).orElseThrow(() -> new TrackOrderException(query.orderId()));
+        var order = orderRepository.findById(query.orderId()).orElseThrow(() -> new NoSuchElementException(String.valueOf(query.orderId())));
         return new TrackOrderResponse(order.getId(), order.getStatus());
     }
 
     @Override
     public CancelOrderResponse cancelOrder(CancelOrderCommand command) {
-        var order = orderRepository.findById(command.orderId()).orElseThrow(() -> new CancelOrderException(command.orderId()));
+        var order = orderRepository.findById(command.orderId()).orElseThrow(() -> new NoSuchElementException(String.valueOf(command.orderId())));
         order.setStatus(OrderStatus.CANCELED);
         orderRepository.save(order);
         return new CancelOrderResponse(command.orderId());
