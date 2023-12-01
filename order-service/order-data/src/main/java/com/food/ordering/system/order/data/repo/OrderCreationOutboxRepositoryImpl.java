@@ -1,14 +1,14 @@
-package com.food.ordering.system.order.service.application.repo;
+package com.food.ordering.system.order.data.repo;
 
 import com.food.ordering.system.domain.value.OrderId;
-import com.food.ordering.system.order.data.entity.OrderEntity;
+import com.food.ordering.system.order.service.application.entity.Order;
 import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 
 import java.time.Instant;
 
 public class OrderCreationOutboxRepositoryImpl implements OrderCreationOutboxRepository {
     @Override
-    public void save(OrderEntity order) {
+    public void save(Order order) {
     }
 
     @Override
@@ -17,7 +17,7 @@ public class OrderCreationOutboxRepositoryImpl implements OrderCreationOutboxRep
     }
 
     @Override
-    public Iterable<OrderEntity> findAllBefore(Instant time) {
+    public Iterable<Order> findAllBefore(Instant time) {
         return null;
     }
 }

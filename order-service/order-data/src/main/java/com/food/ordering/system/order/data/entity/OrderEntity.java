@@ -1,20 +1,22 @@
 package com.food.ordering.system.order.data.entity;
 
-import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.domain.value.OrderStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-public final class OrderEntity extends com.food.ordering.system.domain.entity.Entity<OrderId> {
+public final class OrderEntity {
     @Id
-    private OrderId id;
+    @Column(length = 36, nullable = false, updatable = false)
+    private String id;
 
-    public OrderEntity(OrderId id, String description, OrderStatus status) {
-        super(id);
+    public OrderEntity(String id, String description, OrderStatus status) {
         this.id = id;
         this.description = description;
         this.status = status;

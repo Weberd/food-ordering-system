@@ -1,12 +1,12 @@
 package com.food.ordering.system.order.service.application.port.output;
 
 import com.food.ordering.system.domain.value.OrderId;
-import com.food.ordering.system.order.data.entity.OrderEntity;
+import com.food.ordering.system.order.service.application.entity.Order;
 
 import java.time.Instant;
 
 public interface OrderCreationOutboxRepository {
-    void save(OrderEntity order);
+    void save(Order order);
     void deleteById(OrderId id);
-    Iterable<OrderEntity> findAllBefore(Instant time);
+    Iterable<Order> findAllBefore(Instant time);
 }
