@@ -6,7 +6,7 @@ import com.food.ordering.system.order.service.application.dto.*;
 import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
 import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 import com.food.ordering.system.order.service.application.port.output.OrderRepository;
-import com.food.ordering.system.order.data.entity.Order;
+import com.food.ordering.system.order.data.entity.OrderEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -31,7 +31,7 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
 
     @Override
     public CreateOrderResponse createOrder(CreateOrderCommand command) {
-        var order = new Order(new OrderId(UUID.randomUUID()), command.getDescription(), OrderStatus.PENDING);
+        var order = new OrderEntity(new OrderId(UUID.randomUUID()), command.getDescription(), OrderStatus.PENDING);
 
         this.transactionTemplate.executeWithoutResult(transactionStatus -> {
             orderRepository.save(order);

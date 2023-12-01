@@ -9,11 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public final class Order extends com.food.ordering.system.domain.entity.Entity<OrderId> {
+public final class OrderEntity extends com.food.ordering.system.domain.entity.Entity<OrderId> {
     @Id
     private OrderId id;
 
-    public Order(OrderId id, String description, OrderStatus status) {
+    public OrderEntity(OrderId id, String description, OrderStatus status) {
         super(id);
         this.id = id;
         this.description = description;
