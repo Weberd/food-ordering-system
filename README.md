@@ -10,14 +10,14 @@ https://miro.com/app/board/uXjVNQy_pxY=/
 * cancel order
 
 1. если статус PENDING то сразу ставим CANCELED
-2. если APPROVED то cancelRestarauntReservation статус CANCELLING
+2. если APPROVED то cancelRestaurantReservation статус CANCELLING
 3. если PAID то cancelPaidOrder статус CANCELLING
 
-cancelRestarauntReservationSaga
+cancelRestaurantReservationSaga
 
 1. посылает запрос на отмену резервации
 2. статус CANCELED
-3. отсылаем событие restarauntReservationCanceledEvent
+3. отсылаем событие restaurantReservationCanceledEvent
 
 cancelPaidOrderSaga
 
