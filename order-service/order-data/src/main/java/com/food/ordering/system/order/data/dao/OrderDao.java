@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.data.entity;
+package com.food.ordering.system.order.data.dao;
 
 import com.food.ordering.system.domain.value.OrderStatus;
 import jakarta.persistence.Column;
@@ -11,12 +11,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public final class OrderEntity {
+public final class OrderDao {
     @Id
     @Column(length = 36, nullable = false, updatable = false)
     private String id;
 
-    public OrderEntity(String id, String description, OrderStatus status) {
+    public OrderDao(String id, String description, OrderStatus status) {
         this.id = id;
         this.description = description;
         this.status = status;

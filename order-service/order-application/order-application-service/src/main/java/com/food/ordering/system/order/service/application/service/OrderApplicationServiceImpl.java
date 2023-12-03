@@ -23,7 +23,11 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
     @Autowired
     private final TransactionTemplate transactionTemplate;
 
-    public OrderApplicationServiceImpl(OrderRepository orderRepository, OrderCreationOutboxRepository orderCreationOutboxRepository, TransactionTemplate transactionTemplate) {
+    public OrderApplicationServiceImpl(
+            OrderRepository orderRepository,
+            OrderCreationOutboxRepository orderCreationOutboxRepository,
+            TransactionTemplate transactionTemplate
+    ) {
         this.orderRepository = orderRepository;
         this.orderCreationOutboxRepository = orderCreationOutboxRepository;
         this.transactionTemplate = transactionTemplate;
