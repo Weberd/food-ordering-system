@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.Instant;
 
 public interface OrderCreationOutboxRepository extends JpaRepository<Order, OrderId> {
-    Order save(Order order);
     void deleteById(OrderId id);
     @Query("select o from Order o where s.created < :time")
     Iterable<Order> findAllBefore(Instant time);
