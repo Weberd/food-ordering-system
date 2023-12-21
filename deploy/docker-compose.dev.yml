@@ -31,6 +31,10 @@ services:
     restart: on-failure
     environment:
       POSTGRES_PASSWORD: example
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     container_name: fos-postgres
 
   adminer:
@@ -41,3 +45,6 @@ services:
     depends_on:
       - postgres
     container_name: fos-adminer
+
+volumes:
+  pgdata:
