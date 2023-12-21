@@ -12,8 +12,9 @@
     <artifactId>order-framework-app</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-framework-api</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>
