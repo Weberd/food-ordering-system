@@ -50,7 +50,7 @@ public class OrderApplication {
         );
     }
 
-    @KafkaListener(id = "id", topics = {
+    @KafkaListener(id = "payment-response", topics = {
             "${spring.kafka.topic.payment-response-topic}",
         }
     )
@@ -58,7 +58,7 @@ public class OrderApplication {
         System.out.println(in);
     }
 
-    @KafkaListener(id = "id", topics = {
+    @KafkaListener(id = "restaurant-response", topics = {
             "${spring.kafka.topic.restaurant-response-topic}",
         }
     )
