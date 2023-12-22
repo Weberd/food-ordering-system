@@ -16,11 +16,8 @@ import java.util.UUID;
 
 @Service
 public final class OrderApplicationServiceImpl implements OrderApplicationService {
-    @Autowired
     private final OrderRepository orderRepository;
-    @Autowired
     private final OrderCreationOutboxRepository orderCreationOutboxRepository;
-    @Autowired
     private final TransactionTemplate transactionTemplate;
 
     public OrderApplicationServiceImpl(
