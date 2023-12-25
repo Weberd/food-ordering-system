@@ -3,6 +3,7 @@ package com.food.ordering.system.order.service.app;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -11,8 +12,9 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.food.ordering.system")
-@EnableJpaRepositories
+@ComponentScan(basePackages = "com.food.ordering.system.*")
+@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.data.repo.*")
+@EntityScan("com.food.ordering.system.order.data.entity.*")
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
