@@ -7,7 +7,7 @@ import com.food.ordering.system.order.service.application.entity.Order;
 import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
 import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 import com.food.ordering.system.order.service.application.port.output.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
@@ -15,20 +15,11 @@ import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public final class OrderApplicationServiceImpl implements OrderApplicationService {
     private final OrderRepository orderRepository;
     private final OrderCreationOutboxRepository orderCreationOutboxRepository;
     private final TransactionTemplate transactionTemplate;
-
-    public OrderApplicationServiceImpl(
-            OrderRepository orderRepository,
-            OrderCreationOutboxRepository orderCreationOutboxRepository,
-            TransactionTemplate transactionTemplate
-    ) {
-        this.orderRepository = orderRepository;
-        this.orderCreationOutboxRepository = orderCreationOutboxRepository;
-        this.transactionTemplate = transactionTemplate;
-    }
 
     @Override
     public CreateOrderResponse createOrder(CreateOrderCommand command) {
