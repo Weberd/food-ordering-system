@@ -1,10 +1,7 @@
 package com.food.ordering.system.order.data.entity;
 
 import com.food.ordering.system.domain.value.OrderStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Table(name = "orders")
 public final class OrderEntity {
     @Id
     @Column
