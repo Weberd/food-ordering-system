@@ -12,9 +12,9 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.food.ordering.system.*")
-@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.data.repo.*")
-@EntityScan("com.food.ordering.system.order.data.entity.*")
+@ComponentScan(basePackages = "com.food.ordering.system")
+@EntityScan("com.food.ordering.system.order.data.entity")
+@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.data.repo")
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
