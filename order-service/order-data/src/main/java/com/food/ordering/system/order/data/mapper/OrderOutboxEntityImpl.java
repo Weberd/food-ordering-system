@@ -3,7 +3,9 @@ package com.food.ordering.system.order.data.mapper;
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.order.data.entity.OrderOutboxEntity;
 import com.food.ordering.system.order.service.application.entity.Order;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderOutboxEntityImpl implements OrderMapper<OrderOutboxEntity> {
     @Override
     public Order toOrder(OrderOutboxEntity entity) {

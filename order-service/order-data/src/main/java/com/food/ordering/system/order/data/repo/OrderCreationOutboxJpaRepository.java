@@ -13,6 +13,6 @@ import java.util.UUID;
 
 @Repository
 public interface OrderCreationOutboxJpaRepository extends JpaRepository<OrderOutboxEntity, UUID> {
-    @Query("select o from OrderOutboxEntity o where s.created < :time")
+    @Query("select o from OrderOutboxEntity o where o.created < :time")
     Iterable<OrderOutboxEntity> findAllBefore(Instant time);
 }

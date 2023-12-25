@@ -3,6 +3,7 @@ package com.food.ordering.system.order.data.entity;
 import com.food.ordering.system.domain.value.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @Getter
 @Entity
+@RequiredArgsConstructor
 @Table(name = "orders")
 public final class OrderEntity {
     @Id
