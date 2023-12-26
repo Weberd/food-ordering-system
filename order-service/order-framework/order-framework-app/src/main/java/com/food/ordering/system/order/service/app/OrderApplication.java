@@ -37,19 +37,19 @@ public class OrderApplication {
         return new KafkaAdmin.NewTopics(
             TopicBuilder.name(paymentRequestTopic)
                 .partitions(2)
-                .replicas(2)
+                .replicas(1)
                 .build(),
             TopicBuilder.name(paymentResponseTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build(),
             TopicBuilder.name(restaurantRequestTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build(),
             TopicBuilder.name(restaurantResponseTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build()
         );
     }
