@@ -12,7 +12,9 @@ public final class Order extends Entity<OrderId> {
     private String description;
     private OrderStatus status;
 
-    public Order(OrderId orderId, String description, OrderStatus orderStatus) {
-
+    public Order(OrderId orderId, String orderDescription, OrderStatus orderStatus) {
+        id = orderId;
+        description = orderDescription;
+        status = orderStatus;
     }
 }
