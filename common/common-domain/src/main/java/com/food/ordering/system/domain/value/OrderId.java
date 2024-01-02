@@ -7,4 +7,6 @@ public class OrderId extends Identity<UUID> {
     public OrderId(UUID value) {
         super(value);
     }
+
+    public UUID getValue() { return value(); }
 }

@@ -22,7 +22,7 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CreateOrderResponse createOrder(@RequestBody @Validated CreateOrderCommand command) {
-        return this.orderApplicationService.createOrder(command);
+        return  orderApplicationService.createOrder(command);
     }
 
     @GetMapping("/{orderId}")

@@ -33,7 +33,7 @@ public final class OrderApplicationServiceImpl implements OrderApplicationServic
         // TODO: send order created message;
         this.orderCreationOutboxRepository.deleteById(order.id());
 
-        return new CreateOrderResponse();
+        return new CreateOrderResponse(order.id());
     }
 
     @Override
