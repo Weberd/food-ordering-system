@@ -27,11 +27,11 @@ public class RestaurantApplication {
         return new KafkaAdmin.NewTopics(
             TopicBuilder.name(restaurantRequestTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build(),
             TopicBuilder.name(restaurantResponseTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build()
         );
     }

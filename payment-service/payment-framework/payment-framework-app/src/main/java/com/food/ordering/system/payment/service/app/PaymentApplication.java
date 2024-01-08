@@ -27,11 +27,11 @@ public class PaymentApplication {
         return new KafkaAdmin.NewTopics(
             TopicBuilder.name(paymentRequestTopic)
                 .partitions(2)
-                .replicas(2)
+                .replicas(1)
                 .build(),
             TopicBuilder.name(paymentResponseTopic)
                     .partitions(2)
-                    .replicas(2)
+                    .replicas(1)
                     .build()
         );
     }

@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
@@ -52,21 +51,5 @@ public class OrderApplication {
                     .replicas(1)
                     .build()
         );
-    }
-
-    @KafkaListener(id = "payment-response", topics = {
-            "${spring.kafka.topic.payment-response-topic}",
-        }
-    )
-    public void listenPaymentResponse(String in) {
-        System.out.println(in);
-    }
-
-    @KafkaListener(id = "restaurant-response", topics = {
-            "${spring.kafka.topic.restaurant-response-topic}",
-        }
-    )
-    public void listenRestaurantResponse(String in) {
-        System.out.println(in);
     }
 }
