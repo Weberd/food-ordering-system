@@ -56,11 +56,6 @@
                 <artifactId>order-domain-core</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-message</artifactId>
-                <version>${revision}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
