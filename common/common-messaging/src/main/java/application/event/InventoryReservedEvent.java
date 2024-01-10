@@ -1,4 +1,6 @@
 package application.event;
 
-public class InventoryReservedEvent {
+import com.food.ordering.system.domain.value.OrderId;
+
+public record InventoryReservedEvent(OrderId orderId) {
 }

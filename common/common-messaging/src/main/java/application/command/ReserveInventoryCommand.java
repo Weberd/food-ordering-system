@@ -1,4 +1,6 @@
 package application.command;
 
-public class ReserveInventoryCommand {
+import com.food.ordering.system.domain.value.OrderId;
+
+public record ReserveInventoryCommand(OrderId orderId) {
 }

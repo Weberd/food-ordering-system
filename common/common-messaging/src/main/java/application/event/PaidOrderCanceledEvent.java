@@ -1,4 +1,6 @@
 package application.event;
 
-public class PaidOrderCanceledEvent {
+import com.food.ordering.system.domain.value.OrderId;
+
+public record PaidOrderCanceledEvent(OrderId orderId) {
 }

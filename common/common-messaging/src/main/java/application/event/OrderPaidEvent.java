@@ -1,4 +1,6 @@
 package application.event;
 
-public class OrderPaidEvent {
+import com.food.ordering.system.domain.value.OrderId;
+
+public record OrderPaidEvent(OrderId orderId) {
 }
