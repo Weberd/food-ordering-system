@@ -13,14 +13,13 @@
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>order-application-service</artifactId>
+            <artifactId>common-messaging</artifactId>
+            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>common-messaging</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
+            <artifactId>order-application-service</artifactId>
         </dependency>
     </dependencies>
 </project>
