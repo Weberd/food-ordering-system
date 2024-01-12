@@ -1,9 +1,9 @@
-package com.food.ordering.system.order.service.application.saga;
+package com.food.ordering.system.saga;
 
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.order.service.application.entity.Order;
 import com.food.ordering.system.order.service.application.port.output.PaymentService;
-import com.food.ordering.system.order.service.application.port.output.RestaurantService;
+import com.food.ordering.system.order.service.application.port.output.InventoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 public class createOrderSaga {
 
     @Autowired
-    private final RestaurantService restaurantService;
+    private final InventoryService restaurantService;
     @Autowired
     private final PaymentService paymentService;
 
-    public createOrderSaga(RestaurantService restaurantService, PaymentService paymentService) {
+    public createOrderSaga(InventoryService restaurantService, PaymentService paymentService) {
         this.restaurantService = restaurantService;
         this.paymentService = paymentService;
     }
