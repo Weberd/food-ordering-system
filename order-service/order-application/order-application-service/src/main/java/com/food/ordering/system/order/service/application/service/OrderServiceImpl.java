@@ -4,7 +4,7 @@ import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.domain.value.OrderStatus;
 import com.food.ordering.system.order.service.application.dto.*;
 import com.food.ordering.system.order.service.application.entity.Order;
-import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
+import com.food.ordering.system.order.service.application.port.input.OrderService;
 import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 import com.food.ordering.system.order.service.application.port.output.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public final class OrderApplicationServiceImpl implements OrderApplicationService {
+public final class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderCreationOutboxRepository orderCreationOutboxRepository;
     private final TransactionTemplate transactionTemplate;

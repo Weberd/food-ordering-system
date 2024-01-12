@@ -2,7 +2,7 @@ package com.food.ordering.system.order.service.api;
 
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.order.service.application.dto.*;
-import com.food.ordering.system.order.service.application.port.input.OrderApplicationService;
+import com.food.ordering.system.order.service.application.port.input.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,7 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final OrderApplicationService orderApplicationService;
+    private final OrderService orderApplicationService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
