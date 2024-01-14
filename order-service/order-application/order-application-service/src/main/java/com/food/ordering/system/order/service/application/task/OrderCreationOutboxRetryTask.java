@@ -16,7 +16,6 @@ public record OrderCreationOutboxRetryTask(OrderCreationOutboxRepository outboxR
         Iterable<Order> orderList = outboxRepository.findAllBefore(Instant.now().minusSeconds(60));
         for (Order order : orderList) {
             try {
-                // TODO: send messages
                 outboxRepository.deleteById(order.id());
             } catch (Exception e) {
                 log.error("Order creation task failed failed: " + e.getMessage(), order.id());
