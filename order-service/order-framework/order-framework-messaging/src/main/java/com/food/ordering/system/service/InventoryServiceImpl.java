@@ -3,7 +3,7 @@ package com.food.ordering.system.service;
 import application.command.CancelReservationCommand;
 import application.command.ReserveInventoryCommand;
 import com.food.ordering.system.domain.value.OrderId;
-import com.food.ordering.system.kafka.KafkaProducer;
+import com.food.ordering.system.kafka.producer.KafkaProducer;
 import com.food.ordering.system.order.service.application.port.output.InventoryService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
