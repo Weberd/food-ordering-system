@@ -1,6 +1,6 @@
 package com.food.ordering.system.order.service.service;
 
-import com.food.ordering.system.common.messaging.command.CancelReservationCommand;
+import com.food.ordering.system.common.messaging.command.CancelInventoryReservationCommand;
 import com.food.ordering.system.common.messaging.command.ReserveInventoryCommand;
 import com.food.ordering.system.domain.value.OrderId;
 import com.food.ordering.system.common.messaging.producer.KafkaProducer;
@@ -14,11 +14,11 @@ public class InventoryServiceImpl implements InventoryService {
     private String restaurantRequestTopic;
 
     private final KafkaProducer<ReserveInventoryCommand> reservationProducer;
-    private final KafkaProducer<CancelReservationCommand> cancelReservationCommandKafkaProducer;
+    private final KafkaProducer<CancelInventoryReservationCommand> cancelReservationCommandKafkaProducer;
 
     public InventoryServiceImpl(
             KafkaProducer<ReserveInventoryCommand> reservationProducer,
-            KafkaProducer<CancelReservationCommand> cancelReservationProducer
+            KafkaProducer<CancelInventoryReservationCommand> cancelReservationProducer
     ) {
         this.reservationProducer = reservationProducer;
         this.cancelReservationCommandKafkaProducer = cancelReservationProducer;
@@ -31,6 +31,6 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public void cancelInventoryReservation(OrderId orderId) {
-        cancelReservationCommandKafkaProducer.sendMessage(restaurantRequestTopic, new CancelReservationCommand(orderId));
+        cancelReservationCommandKafkaProducer.sendMessage(restaurantRequestTopic, new CancelInventoryReservationCommand(orderId));
     }
 }
