@@ -35,12 +35,4 @@ public class PaymentApplication {
                     .build()
         );
     }
-
-    @KafkaListener(id = "id", topics = {
-            "${spring.kafka.topic.payment-request-topic}",
-        }
-    )
-    public void listenPaymentRequest(String in) {
-        System.out.println(in);
-    }
 }
