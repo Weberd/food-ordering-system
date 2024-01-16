@@ -27,6 +27,7 @@
         <module>payment-service/payment-framework/payment-framework-app</module>
         <module>order-service/order-framework/order-framework-messaging</module>
         <module>common/common-messaging</module>
+        <module>payment-service/payment-framework/payment-framework-messaging</module>
     </modules>
 
     <properties>
