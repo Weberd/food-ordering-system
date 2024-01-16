@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
@@ -14,6 +15,7 @@ import org.springframework.kafka.core.KafkaAdmin;
 @ComponentScan(basePackages = "com.food.ordering.system")
 @EntityScan("com.food.ordering.system.order.data.entity")
 @EnableJpaRepositories(basePackages = "com.food.ordering.system.order.data.repo")
+@EnableKafka
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);

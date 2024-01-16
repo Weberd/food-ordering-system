@@ -9,20 +9,20 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>restaurant-framework-app</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.food.ordering.system</groupId>
-            <artifactId>restaurant-framework-messaging</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-    </dependencies>
+    <artifactId>restaurant-framework-messaging</artifactId>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>common-messaging</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>
