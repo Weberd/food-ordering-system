@@ -2,7 +2,7 @@ package com.food.ordering.system.order.service.kafka.consumer;
 
 import com.food.ordering.system.common.messaging.event.OrderPaidEvent;
 import com.food.ordering.system.common.messaging.event.OrderPaymentFailedEvent;
-import com.food.ordering.system.common.messaging.event.PaidOrderCanceledEvent;
+import com.food.ordering.system.common.messaging.event.OrderPaymentCanceledEvent;
 import com.food.ordering.system.domain.value.OrderStatus;
 import com.food.ordering.system.order.service.application.dto.TrackOrderQuery;
 import com.food.ordering.system.order.service.application.port.input.OrderService;
@@ -27,7 +27,7 @@ public class PaymentKafkaConsumer {
     }
 
     @KafkaHandler
-    public void listenOrderPaymentCanceled(PaidOrderCanceledEvent event) {
+    public void listenOrderPaymentCanceled(OrderPaymentCanceledEvent event) {
         var trackOrderResponse = orderService.trackOrder(new TrackOrderQuery(event.orderId()));
 
         if (trackOrderResponse.status() == OrderStatus.CANCELING) {
