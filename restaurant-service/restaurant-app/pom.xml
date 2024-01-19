@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>restaurant-framework</artifactId>
+        <artifactId>restaurant-service</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>restaurant-framework-app</artifactId>
+    <artifactId>restaurant-app</artifactId>
 
     <build>
         <plugins>
@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>restaurant-framework-messaging</artifactId>
+            <artifactId>restaurant-messaging</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>

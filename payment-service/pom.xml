@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>payment-framework</module>
+        <module>payment-app</module>
+        <module>payment-messaging</module>
     </modules>
 </project>

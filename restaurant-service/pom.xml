@@ -13,8 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>restaurant-framework</module>
-        <module>restaurant-framework/restaurant-framework-app</module>
-        <module>restaurant-framework/restaurant-framework-messaging</module>
+        <module>restaurant-app</module>
+        <module>restaurant-messaging</module>
     </modules>
 </project>

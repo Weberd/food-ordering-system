@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>payment-framework</artifactId>
+        <artifactId>payment-service</artifactId>
         <version>${revision}</version>
     </parent>
 
