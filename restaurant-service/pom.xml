@@ -13,9 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>restaurant-application</module>
-        <module>restaurant-data</module>
-        <module>restaurant-domain</module>
         <module>restaurant-framework</module>
         <module>restaurant-framework/restaurant-framework-app</module>
         <module>restaurant-framework/restaurant-framework-messaging</module>
