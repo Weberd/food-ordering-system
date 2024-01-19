@@ -19,6 +19,11 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>common-data</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
         </dependency>
@@ -37,13 +42,13 @@
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-domain-core</artifactId>
-            <version>1.0.0</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>order-application</artifactId>
-            <version>1.0.0</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

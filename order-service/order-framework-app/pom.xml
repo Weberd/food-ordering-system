@@ -40,5 +40,10 @@
             <artifactId>order-data</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-messaging</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>
