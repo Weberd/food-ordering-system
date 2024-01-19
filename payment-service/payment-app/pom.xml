@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>payment-framework-messaging</artifactId>
+            <artifactId>payment-messaging</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
