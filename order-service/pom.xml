@@ -14,7 +14,9 @@
     <modules>
         <module>order-application</module>
         <module>order-domain</module>
-        <module>order-framework</module>
+        <module>order-framework-app</module>
+        <module>order-rest</module>
+        <module>order-messaging</module>
     </modules>
 
     <dependencyManagement>
@@ -25,27 +27,6 @@
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-api</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-application-service</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-data</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.food.ordering.system</groupId>
-                <artifactId>order-domain-core</artifactId>
-                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

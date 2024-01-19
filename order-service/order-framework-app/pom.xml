@@ -5,23 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>order-framework</artifactId>
+        <artifactId>order-service</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-framework-api</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <artifactId>order-framework-app</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>common-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.food.ordering.system</groupId>
-            <artifactId>order-data</artifactId>
+            <artifactId>order-rest</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>order-framework</artifactId>
+        <artifactId>order-service</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>order-framework-messaging</artifactId>
+    <artifactId>order-messaging</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
@@ -18,8 +18,15 @@
         </dependency>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
-            <artifactId>order-application-service</artifactId>
-            <version>${revision}</version>
+            <artifactId>order-domain-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-application</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

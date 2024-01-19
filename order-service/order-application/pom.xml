@@ -10,9 +10,16 @@
     </parent>
 
     <artifactId>order-application</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>order-application-service</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-domain-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>
