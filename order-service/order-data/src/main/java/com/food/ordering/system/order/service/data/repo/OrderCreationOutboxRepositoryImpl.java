@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -30,6 +31,12 @@ public class OrderCreationOutboxRepositoryImpl implements OrderCreationOutboxRep
             orders.add(orderMapper.toOrder(entity));
         }
         return orders;
+    }
+
+    @Override
+    public Optional<Order> findById(OrderId id) {
+        var orders = orderCreationOutboxJpaRepository.findById(id.value());
+        return orders.map(orderMapper::toOrder);
     }
 
     @Override
