@@ -20,14 +20,14 @@ public class OrderKafkaConsumer {
     private final KafkaProducer<OrderPaymentCanceledEvent> paidOrderCanceledEventProducer;
 
     @KafkaListener(id = "process-payment", topics = {
-        "${spring.kafka.topic.payment-request-topic}",
+        "${spring.kafka.topic.payment-request-topic}"
     })
     public void processPayment(ProcessPaymentCommand command) {
         orderPaidEventProducer.sendMessage(paymentResponseTopic, new OrderPaidEvent(command.orderId()));
     }
 
     @KafkaListener(id = "cancel-payment", topics = {
-        "${spring.kafka.topic.payment-request-topic}",
+        "${spring.kafka.topic.payment-request-topic}"
     })
     public void cancelPayment(CancelPaymentCommand command) {
         paidOrderCanceledEventProducer.sendMessage(paymentResponseTopic, new OrderPaymentCanceledEvent(command.orderId()));
