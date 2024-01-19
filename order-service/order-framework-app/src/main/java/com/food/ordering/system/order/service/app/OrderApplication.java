@@ -13,8 +13,8 @@ import org.springframework.kafka.core.KafkaAdmin;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.food.ordering.system")
-@EntityScan("com.food.ordering.system.order.data.entity")
-@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.data.repo")
+@EntityScan("com.food.ordering.system.order.service.data.entity")
+@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.service.data.repo")
 @EnableKafka
 public class OrderApplication {
     public static void main(String[] args) {
