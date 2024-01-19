@@ -46,7 +46,7 @@ public class CreateOrderSaga {
         }
     }
 
-    void reserveInventory(Order order) {
+    private void reserveInventory(Order order) {
         try {
             restaurantService.reserveInventory(order.id());
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class CreateOrderSaga {
         }
     }
 
-    void processPayment(Order order) {
+    private void processPayment(Order order) {
         try {
             paymentService.processPayment(order.id());
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class CreateOrderSaga {
         }
     }
 
-    void rollbackInventoryReservation(OrderId orderId) {
+    private void rollbackInventoryReservation(OrderId orderId) {
         try {
             restaurantService.cancelInventoryReservation(orderId);
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class CreateOrderSaga {
         }
     }
 
-    void rollbackPayment(OrderId orderId) {
+    private void rollbackPayment(OrderId orderId) {
         try {
             paymentService.cancelPayment(orderId);
         } catch (Exception e) {
