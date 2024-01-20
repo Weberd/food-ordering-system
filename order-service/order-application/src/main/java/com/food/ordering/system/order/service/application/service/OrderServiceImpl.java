@@ -6,14 +6,12 @@ import com.food.ordering.system.order.service.application.dto.*;
 import com.food.ordering.system.order.service.application.entity.Order;
 import com.food.ordering.system.order.service.application.port.input.OrderService;
 import com.food.ordering.system.order.service.application.port.output.InventoryService;
-import com.food.ordering.system.order.service.application.port.output.OrderCreationOutboxRepository;
 import com.food.ordering.system.order.service.application.port.output.OrderRepository;
 import com.food.ordering.system.order.service.application.port.output.PaymentService;
 import com.food.ordering.system.order.service.application.saga.CreateOrderSaga;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.NoSuchElementException;
 import java.util.UUID;
