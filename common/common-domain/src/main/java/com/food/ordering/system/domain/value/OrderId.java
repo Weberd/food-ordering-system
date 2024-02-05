@@ -8,5 +8,9 @@ public class OrderId extends Identity<UUID> {
         super(value);
     }
 
+    public OrderId() {
+        super(UUID.randomUUID());
+    }
+
     public UUID getValue() { return value(); }
 }
