@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/food-ordering-service
+    username: postgres
+    password: example
+
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      payment-request-topic: PAYMENT_REQUEST_TOPIC
+      payment-response-topic: PAYMENT_RESPONSE_TOPIC
+      restaurant-request-topic: RESTAURANT_REQUEST_TOPIC
+      restaurant-response-topic: RESTAURANT_RESPONSE_TOPIC
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: 'com.food.ordering.system.common.messaging.*'
