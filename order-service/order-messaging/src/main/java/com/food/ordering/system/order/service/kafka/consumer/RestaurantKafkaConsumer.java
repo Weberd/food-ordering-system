@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-@KafkaListener(id = "${spring.kafka.topic.restaurant-response-topic}", topics = {
+@KafkaListener(id = "restaurant-consumer", topics = {
         "${spring.kafka.topic.restaurant-response-topic}",
 })
 public class RestaurantKafkaConsumer {
