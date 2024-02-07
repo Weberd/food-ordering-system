@@ -48,6 +48,7 @@ public class CreateOrderSaga {
 
     private void reserveInventory(Order order) {
         try {
+            log.info("Reserving inventory for order " + order.id());
             restaurantService.reserveInventory(order.id());
         } catch (Exception e) {
             log.error("Inventory reservation failed: " + e.getMessage(), order);
@@ -58,6 +59,7 @@ public class CreateOrderSaga {
 
     private void processPayment(Order order) {
         try {
+            log.info("Processing payment for order " + order.id());
             paymentService.processPayment(order.id());
         } catch (Exception e) {
             log.error("Process payment failed: " + e.getMessage(), order);

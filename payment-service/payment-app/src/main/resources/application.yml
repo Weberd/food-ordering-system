@@ -2,10 +2,10 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     topic:
-      restaurant-inventory-reservation-request: RESTAURANT_INVENTORY_RESERVATION_REQUEST
-      restaurant-inventory-reservation-response: RESTAURANT_INVENTORY_RESERVATION_RESPONSE
-      restaurant-inventory-reservation-cancel-request: RESTAURANT_CANCEL_INVENTORY_RESERVATION_REQUEST
-      restaurant-inventory-reservation-cancel-response: RESTAURANT_CANCEL_INVENTORY_RESERVATION_RESPONSE
+      payment-process-request: PAYMENT_PROCESS_REQUEST
+      payment-process-response: PAYMENT_PROCESS_RESPONSE
+      payment-cancel-request: PAYMENT_CANCEL_REQUEST
+      payment-cancel-response: PAYMENT_CANCEL_RESPONSE
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer

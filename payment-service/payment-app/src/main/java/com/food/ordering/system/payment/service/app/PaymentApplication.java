@@ -17,23 +17,37 @@ public class PaymentApplication {
         SpringApplication.run(PaymentApplication.class, args);
     }
 
-    @Value("${spring.kafka.topic.payment-request-topic}")
-    private String paymentRequestTopic;
+    @Value("${spring.kafka.topic.payment-process-request}")
+    private String paymentProcessRequestTopic;
 
-    @Value("${spring.kafka.topic.payment-response-topic}")
-    private String paymentResponseTopic;
+    @Value("${spring.kafka.topic.payment-process-response}")
+    private String paymentProcessResponseTopic;
+
+    @Value("${spring.kafka.topic.payment-cancel-request}")
+    private String paymentCancelRequestTopic;
+
+    @Value("${spring.kafka.topic.payment-cancel-response}")
+    private String paymentCancelResponseTopic;
 
     @Bean
     public KafkaAdmin.NewTopics topics() {
         return new KafkaAdmin.NewTopics(
-            TopicBuilder.name(paymentRequestTopic)
+            TopicBuilder.name(paymentProcessRequestTopic)
                 .partitions(2)
                 .replicas(1)
                 .build(),
-            TopicBuilder.name(paymentResponseTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build()
+            TopicBuilder.name(paymentProcessResponseTopic)
+                .partitions(2)
+                .replicas(1)
+                .build(),
+            TopicBuilder.name(paymentCancelRequestTopic)
+                .partitions(2)
+                .replicas(1)
+                .build(),
+            TopicBuilder.name(paymentCancelResponseTopic)
+                .partitions(2)
+                .replicas(1)
+                .build()
         );
     }
 }

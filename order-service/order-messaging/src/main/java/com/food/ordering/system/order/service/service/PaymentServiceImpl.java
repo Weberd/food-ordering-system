@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    @Value("${spring.kafka.topic.payment-request-topic}")
-    private String paymentRequestTopic;
+    @Value("${spring.kafka.topic.payment-process-request}")
+    private String paymentProcessRequestTopic;
+
+    @Value("${spring.kafka.topic.payment-cancel-request}")
+    private String paymentCancelRequestTopic;
 
     private final KafkaProducer<ProcessPaymentCommand> processPaymentMessageProducer;
     private final KafkaProducer<CancelPaymentCommand> cancelPaymentProducer;
@@ -23,11 +26,11 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public void processPayment(OrderId orderId) {
-        this.processPaymentMessageProducer.sendMessage(paymentRequestTopic, new ProcessPaymentCommand(orderId));
+        this.processPaymentMessageProducer.sendMessage(paymentProcessRequestTopic, new ProcessPaymentCommand(orderId));
     }
 
     @Override
     public void cancelPayment(OrderId orderId) {
-        this.cancelPaymentProducer.sendMessage(paymentRequestTopic, new CancelPaymentCommand(orderId));
+        this.cancelPaymentProducer.sendMessage(paymentCancelRequestTopic, new CancelPaymentCommand(orderId));
     }
 }

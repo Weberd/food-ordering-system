@@ -17,23 +17,37 @@ public class RestaurantApplication {
         SpringApplication.run(RestaurantApplication.class, args);
     }
 
-    @Value("${spring.kafka.topic.restaurant-request-topic}")
-    private String restaurantRequestTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-request}")
+    private String restaurantInventoryReservationRequest;
 
-    @Value("${spring.kafka.topic.restaurant-response-topic}")
-    private String restaurantResponseTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-response}")
+    private String restaurantInventoryReservationResponse;
+
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-cancel-request}")
+    private String restaurantInventoryReservationCancelRequest;
+
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-cancel-response}")
+    private String restaurantInventoryReservationCancelResponse;
 
     @Bean
     public KafkaAdmin.NewTopics topics() {
         return new KafkaAdmin.NewTopics(
-            TopicBuilder.name(restaurantRequestTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build(),
-            TopicBuilder.name(restaurantResponseTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build()
+                TopicBuilder.name(restaurantInventoryReservationRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationCancelRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationCancelResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build()
         );
     }
 }

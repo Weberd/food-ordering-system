@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {
-    @Value("${spring.kafka.topic.restaurant-request-topic}")
-    private String restaurantRequestTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-request}")
+    private String inventoryReservationRequestTopic;
+
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-cancel-request}")
+    private String cancelInventoryReservationRequestTopic;
 
     private final KafkaProducer<ReserveInventoryCommand> reservationProducer;
     private final KafkaProducer<CancelInventoryReservationCommand> cancelReservationCommandKafkaProducer;
@@ -26,11 +29,11 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public void reserveInventory(OrderId orderId) {
-        reservationProducer.sendMessage(restaurantRequestTopic, new ReserveInventoryCommand(orderId));
+        reservationProducer.sendMessage(inventoryReservationRequestTopic, new ReserveInventoryCommand(orderId));
     }
 
     @Override
     public void cancelInventoryReservation(OrderId orderId) {
-        cancelReservationCommandKafkaProducer.sendMessage(restaurantRequestTopic, new CancelInventoryReservationCommand(orderId));
+        cancelReservationCommandKafkaProducer.sendMessage(cancelInventoryReservationRequestTopic, new CancelInventoryReservationCommand(orderId));
     }
 }

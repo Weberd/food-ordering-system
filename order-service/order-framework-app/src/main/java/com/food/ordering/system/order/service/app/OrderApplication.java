@@ -21,37 +21,65 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 
-    @Value("${spring.kafka.topic.payment-request-topic}")
-    private String paymentRequestTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-request}")
+    private String restaurantInventoryReservationRequest;
 
-    @Value("${spring.kafka.topic.payment-response-topic}")
-    private String paymentResponseTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-response}")
+    private String restaurantInventoryReservationResponse;
 
-    @Value("${spring.kafka.topic.restaurant-request-topic}")
-    private String restaurantRequestTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-cancel-request}")
+    private String restaurantInventoryReservationCancelRequest;
 
-    @Value("${spring.kafka.topic.restaurant-response-topic}")
-    private String restaurantResponseTopic;
+    @Value("${spring.kafka.topic.restaurant-inventory-reservation-cancel-response}")
+    private String restaurantInventoryReservationCancelResponse;
+
+    @Value("${spring.kafka.topic.payment-process-request}")
+    private String paymentProcessRequest;
+
+    @Value("${spring.kafka.topic.payment-process-response}")
+    private String paymentProcessResponse;
+
+    @Value("${spring.kafka.topic.payment-cancel-request}")
+    private String paymentCancelRequest;
+
+    @Value("${spring.kafka.topic.payment-cancel-response}")
+    private String paymentCancelResponse;
 
     @Bean
     public KafkaAdmin.NewTopics topics() {
         return new KafkaAdmin.NewTopics(
-            TopicBuilder.name(paymentRequestTopic)
-                .partitions(2)
-                .replicas(1)
-                .build(),
-            TopicBuilder.name(paymentResponseTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build(),
-            TopicBuilder.name(restaurantRequestTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build(),
-            TopicBuilder.name(restaurantResponseTopic)
-                    .partitions(2)
-                    .replicas(1)
-                    .build()
+                TopicBuilder.name(restaurantInventoryReservationRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationCancelRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(restaurantInventoryReservationCancelResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(paymentProcessRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(paymentProcessResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(paymentCancelRequest)
+                        .partitions(2)
+                        .replicas(1)
+                        .build(),
+                TopicBuilder.name(paymentCancelResponse)
+                        .partitions(2)
+                        .replicas(1)
+                        .build()
         );
     }
 }

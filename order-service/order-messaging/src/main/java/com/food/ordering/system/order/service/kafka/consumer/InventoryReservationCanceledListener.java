@@ -1,7 +1,6 @@
 package com.food.ordering.system.order.service.kafka.consumer;
 
 import com.food.ordering.system.common.messaging.event.InventoryReservationCanceledEvent;
-import com.food.ordering.system.common.messaging.event.InventoryReservationFailedEvent;
 import com.food.ordering.system.common.messaging.event.InventoryReservedEvent;
 import com.food.ordering.system.domain.value.OrderStatus;
 import com.food.ordering.system.order.service.application.dto.TrackOrderQuery;
@@ -15,18 +14,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-@KafkaListener(id = "restaurant-consumer", topics = {
-        "${spring.kafka.topic.restaurant-response-topic}",
-})
-public class RestaurantKafkaConsumer {
+public class InventoryReservationCanceledListener {
     private final OrderService orderService;
 
-    @KafkaHandler
-    public void listenInventoryReserved(InventoryReservedEvent event) {
-        orderService.updateStatus(event.orderId(), OrderStatus.PAID);
-    }
-
-    @KafkaHandler
+    @KafkaListener(
+        id = "restaurant-inventory-reservation-canceled",
+        topics = {"${spring.kafka.topic.restaurant-inventory-reservation-cancel-response}"}
+    )
     public void listenInventoryReservationCanceled(InventoryReservationCanceledEvent event)
     {
         var trackOrderResponse = orderService.trackOrder(new TrackOrderQuery(event.orderId()));
@@ -34,11 +28,5 @@ public class RestaurantKafkaConsumer {
         if (trackOrderResponse.status() == OrderStatus.CANCELING) {
             orderService.updateStatus(event.orderId(), OrderStatus.CANCELED);
         }
-    }
-
-    @KafkaHandler
-    public void listenInventoryReservationFailed(InventoryReservationFailedEvent event)
-    {
-        log.error("Inventory reservation for Order " + event.orderId() + " failed. " + event.message());
     }
 }
